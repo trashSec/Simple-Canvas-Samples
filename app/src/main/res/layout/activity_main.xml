@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@drawable/back"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.game.MainActivity">
+
+
+    <TextView
+        android:text="Выберите игру"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textAppearance="@color/colorPrimaryDark"
+        android:id="@+id/textView"
+        android:textAlignment="center"
+        android:textStyle="normal|italic" />
+
+    <Button
+        android:text="Funny Birds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/b1" />
+
+    <Button
+        android:text="Balls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/b2" />
+
+    <Button
+        android:text="Smile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/b3" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:textAlignment="center" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:visibility="invisible"/>
+
+</LinearLayout>
