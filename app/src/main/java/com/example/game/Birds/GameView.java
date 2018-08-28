@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.Birds;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,9 +11,7 @@ import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * Created by Анастасия on 23.01.2017.
- */
+import com.example.game.R;
 
 public class GameView extends View {
 
@@ -33,39 +31,39 @@ public class GameView extends View {
         super(context);
 
         Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.player2);
-        int w = b.getWidth()/4;
-        int h = b.getHeight()/4;
+        int w = b.getWidth() / 4;
+        int h = b.getHeight() / 4;
         Rect firstFrame = new Rect(0, 0, w, h);
         playerBird = new Sprite(10, 0, 0, 100, firstFrame, b);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                if (i ==0 && j == 0) {
+                if (i == 0 && j == 0) {
                     continue;
                 }
-                if (i ==2 && j == 3) {
+                if (i == 2 && j == 3) {
                     continue;
                 }
-                playerBird.addFrame(new Rect(j*w, i*h, j*w+w, i*w+w));
+                playerBird.addFrame(new Rect(j * w, i * h, j * w + w, i * w + w));
             }
         }
 
         b = BitmapFactory.decodeResource(getResources(), R.drawable.enemy);
-        w = b.getWidth()/5;
-        h = b.getHeight()/3;
-        firstFrame = new Rect(4*w, 0, 5*w, h);
+        w = b.getWidth() / 5;
+        h = b.getHeight() / 3;
+        firstFrame = new Rect(4 * w, 0, 5 * w, h);
 
         enemyBird = new Sprite(2000, 250, -300, 0, firstFrame, b);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 4; j >= 0; j--) {
-                if (i ==0 && j == 4) {
+                if (i == 0 && j == 4) {
                     continue;
                 }
-                if (i ==2 && j == 0) {
+                if (i == 2 && j == 0) {
                     continue;
                 }
-                enemyBird.addFrame(new Rect(j*w, i*h, j*w+w, i*w+w));
+                enemyBird.addFrame(new Rect(j * w, i * h, j * w + w, i * w + w));
             }
         }
 
@@ -106,7 +104,7 @@ public class GameView extends View {
         canvas.drawText("score: " + points + "", viewWidth - 350, 70, p);
     }
 
-    protected void update () {
+    protected void update() {
         playerBird.update(timerInterval);
         enemyBird.update(timerInterval);
         coin.update(timerInterval);
@@ -115,20 +113,19 @@ public class GameView extends View {
             playerBird.setY(viewHeight - playerBird.getFrameHeight());
             playerBird.setVy(-playerBird.getVy());
             points++;
-        }
-        else if (playerBird.getY() < 0) {
+        } else if (playerBird.getY() < 0) {
             playerBird.setY(0);
             playerBird.setVy(-playerBird.getVy());
             points++;
         }
 
-        if (enemyBird.getX() < - enemyBird.getFrameWidth()) {
+        if (enemyBird.getX() < -enemyBird.getFrameWidth()) {
             teleportEnemy();
-            points +=20;
+            points += 20;
         }
 
         if (enemyBird.intersect(playerBird)) {
-            teleportEnemy ();
+            teleportEnemy();
             points -= 40;
         }
 
@@ -140,7 +137,6 @@ public class GameView extends View {
             coins += 1;
             teleportCoin();
         }
-
         invalidate();
     }
 
@@ -148,12 +144,11 @@ public class GameView extends View {
     public boolean onTouchEvent(MotionEvent event) {
 
         int eventAction = event.getAction();
-        if (eventAction == MotionEvent.ACTION_DOWN)  {
+        if (eventAction == MotionEvent.ACTION_DOWN) {
 
             if (event.getY() < playerBird.getBoundingBoxRect().top) {
                 playerBird.setVy(-100);
-            }
-            else if (event.getY() > (playerBird.getBoundingBoxRect().bottom)) {
+            } else if (event.getY() > (playerBird.getBoundingBoxRect().bottom)) {
                 playerBird.setVy(100);
             }
         }
@@ -161,8 +156,7 @@ public class GameView extends View {
         return true;
     }
 
-
-    private void teleportEnemy () {
+    private void teleportEnemy() {
         enemyBird.setX(viewWidth + Math.random() * 500);
         enemyBird.setY(Math.random() * (viewHeight - enemyBird.getFrameHeight()));
     }
@@ -180,7 +174,7 @@ public class GameView extends View {
 
         @Override
         public void onTick(long millisUntilFinished) {
-            update ();
+            update();
         }
 
         @Override

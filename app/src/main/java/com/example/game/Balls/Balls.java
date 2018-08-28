@@ -1,13 +1,13 @@
-package com.example.game;
+package com.example.game.Balls;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class birds extends AppCompatActivity {
+public class Balls extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new GameView(this));
+        setContentView(new BallsView(this));
     }
 }

@@ -15,9 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Smile" />
-        <activity android:name=".birds" />
-        <activity android:name=".balls"></activity>
+        <activity android:name=".Smile.Smile" />
+        <activity android:name=".Birds.Birds" />
+        <activity android:name=".Balls.Balls" />
+        <activity android:name=".Lines.Lines" />
     </application>
 
 </manifest>

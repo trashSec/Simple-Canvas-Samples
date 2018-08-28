@@ -1,13 +1,9 @@
-package com.example.game;
+package com.example.game.Smile;
 
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
-/**
- * Created by Анастасия on 24.01.2017.
- */
 
 public class SmileDraw extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -20,7 +16,7 @@ public class SmileDraw extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        drawThread = new SmileThred(getContext(),getHolder());
+        drawThread = new SmileThred(getContext(), getHolder());
         drawThread.start();
     }
 
@@ -38,14 +34,13 @@ public class SmileDraw extends SurfaceView implements SurfaceHolder.Callback {
                 drawThread.join();
                 retry = false;
             } catch (InterruptedException e) {
-                //
             }
         }
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        drawThread.setTowardPoint((int)event.getX(),(int)event.getY());
+        drawThread.setTowardPoint((int) event.getX(), (int) event.getY());
 
         return false;
     }

@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.Smile;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,9 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
 
-/**
- * Created by Анастасия on 24.01.2017.
- */
+import com.example.game.R;
 
 public class SmileThred extends Thread {
 
@@ -59,7 +57,6 @@ public class SmileThred extends Thread {
                 } finally {
                     surfaceHolder.unlockCanvasAndPost(canvas);
                 }
-
             }
         }
     }
