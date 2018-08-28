@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.game.MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin">
 
 
     <TextView
@@ -18,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="@string/chose_game"
         android:textAlignment="center"
-        android:textAppearance="@color/colorPrimaryDark"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="normal|italic" />
 
@@ -45,6 +43,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lines"/>
+
+    <Button
+        android:id="@+id/recurs_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recurs"/>
 
     <TextView
         android:id="@+id/text"

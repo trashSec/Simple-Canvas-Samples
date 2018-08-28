@@ -19,6 +19,7 @@
         <activity android:name=".Birds.Birds" />
         <activity android:name=".Balls.Balls" />
         <activity android:name=".Lines.Lines" />
+        <activity android:name=".Recurs.Recurs" />
     </application>
 
 </manifest>

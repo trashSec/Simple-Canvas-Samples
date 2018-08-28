@@ -12,13 +12,14 @@ import android.widget.TextView;
 import com.example.game.Balls.Balls;
 import com.example.game.Birds.Birds;
 import com.example.game.Lines.Lines;
+import com.example.game.Recurs.Recurs;
 import com.example.game.Smile.Smile;
 
 
 public class MainActivity extends Activity {
-    Intent birdsIntent, ballsIntent, smileIntent, linesIntent;
-    Button birdsButton, ballsButton, smileButton, linesButton;
-    boolean p1 = false, p2 = false, p3 = false, p4 = false;
+    Intent birdsIntent, ballsIntent, smileIntent, linesIntent, recursIntent;
+    Button birdsButton, ballsButton, smileButton, linesButton, recursButton;
+    boolean p1 = false, p2 = false, p3 = false, p4 = false, p5 = false;
     ProgressBar progressBar;
     TextView text;
 
@@ -30,12 +31,13 @@ public class MainActivity extends Activity {
         ballsIntent = new Intent(this, Balls.class);
         smileIntent = new Intent(this, Smile.class);
         linesIntent = new Intent(this, Lines.class);
-
+        recursIntent = new Intent(this, Recurs.class);
 
         birdsButton = findViewById(R.id.birds_button);
         ballsButton = findViewById(R.id.balls_button);
         smileButton = findViewById(R.id.smile_button);
         linesButton = findViewById(R.id.lines_button);
+        recursButton = findViewById(R.id.recurs_button);
 
         progressBar = findViewById(R.id.progressBar);
         text = findViewById(R.id.text);
@@ -68,6 +70,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 p4 = true;
+                new LoadImage().execute();
+            }
+        });
+        recursButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p5 = true;
                 new LoadImage().execute();
             }
         });
@@ -105,9 +114,12 @@ public class MainActivity extends Activity {
             } else if (p3) {
                 startActivity(smileIntent);
                 p3 = false;
-            } else {
+            } else if (p4) {
                 startActivity(linesIntent);
                 p4 = false;
+            } else {
+                startActivity(recursIntent);
+                p5 = false;
             }
             text.setVisibility(View.INVISIBLE);
             progressBar.setVisibility(View.INVISIBLE);
