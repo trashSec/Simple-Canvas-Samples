@@ -7,7 +7,7 @@ import android.view.SurfaceView;
 
 public class SmileDraw extends SurfaceView implements SurfaceHolder.Callback {
 
-    private SmileThred drawThread;
+    private SmileThread drawThread;
 
     public SmileDraw(Context context) {
         super(context);
@@ -16,13 +16,12 @@ public class SmileDraw extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        drawThread = new SmileThred(getContext(), getHolder());
+        drawThread = new SmileThread(getContext(), getHolder());
         drawThread.start();
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-
     }
 
     @Override

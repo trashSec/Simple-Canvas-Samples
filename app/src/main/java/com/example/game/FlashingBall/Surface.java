@@ -21,8 +21,8 @@ public class Surface extends SurfaceView implements SurfaceHolder.Callback {
     public boolean onTouchEvent(MotionEvent event) {
         x = (int) event.getX();
         y = (int) event.getY();
-        return false;
 
+        return false;
     }
 
     @Override
@@ -33,7 +33,6 @@ public class Surface extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-
     }
 
     @Override

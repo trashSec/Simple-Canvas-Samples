@@ -15,7 +15,7 @@ public class BallsView extends View {
     }
 
     class Ball {
-        public int x, y, r, color, vx, vy;
+        int x, y, r, color, vx, vy;
 
         Ball(int x, int y, int r, int color, int vx, int vy) {
             this.x = x;
@@ -53,19 +53,19 @@ public class BallsView extends View {
 
     class MyTimer extends CountDownTimer {
 
-        public MyTimer() {
+        MyTimer() {
             super(Integer.MAX_VALUE, 100);
         }
 
         @Override
         public void onTick(long millisUntilFinished) {
-            for (int i = 0; i < balls.length; i++) {
-                if (balls[i].x + balls[i].vx < getWidth() - balls[i].r && balls[i].x + balls[i].vx > balls[i].r)
-                    balls[i].x += balls[i].vx;
-                else balls[i].vx = -balls[i].vx;
-                if (balls[i].y + balls[i].vy < getHeight() - balls[i].r && balls[i].y + balls[i].vy > balls[i].r)
-                    balls[i].y += balls[i].vy;
-                else balls[i].vy = -balls[i].vy;
+            for (Ball ball : balls) {
+                if (ball.x + ball.vx < getWidth() - ball.r && ball.x + ball.vx > ball.r)
+                    ball.x += ball.vx;
+                else ball.vx = -ball.vx;
+                if (ball.y + ball.vy < getHeight() - ball.r && ball.y + ball.vy > ball.r)
+                    ball.y += ball.vy;
+                else ball.vy = -ball.vy;
             }
             invalidate();
         }

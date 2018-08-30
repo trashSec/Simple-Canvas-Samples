@@ -18,7 +18,7 @@ public class DrawActivity extends View {
         paint.setColor(Color.BLUE);
         paint.setStyle(Paint.Style.STROKE);
         int i = 0;
-        while (i < canvas.getWidth()) {
+        while (i < getWidth()) {
             canvas.drawLine(getWidth() - i, getHeight() + i, 1 - i, 1 + i, paint);
             canvas.drawLine(getWidth() + i, getHeight() - i, 1 + i, 1 - i, paint);
             i = i + 50;

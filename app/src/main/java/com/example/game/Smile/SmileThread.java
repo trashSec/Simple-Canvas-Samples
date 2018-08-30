@@ -10,7 +10,7 @@ import android.view.SurfaceHolder;
 
 import com.example.game.R;
 
-public class SmileThred extends Thread {
+public class SmileThread extends Thread {
 
     private SurfaceHolder surfaceHolder;
 
@@ -26,7 +26,7 @@ public class SmileThred extends Thread {
         backgroundPaint.setStyle(Paint.Style.FILL);
     }
 
-    public SmileThred(Context context, SurfaceHolder surfaceHolder) {
+    public SmileThread(Context context, SurfaceHolder surfaceHolder) {
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.smile);
         this.surfaceHolder = surfaceHolder;
     }

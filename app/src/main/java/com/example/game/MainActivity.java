@@ -67,7 +67,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 p2 = true;
                 new LoadImage().execute();
-
             }
         });
         linesButton.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +140,6 @@ public class MainActivity extends Activity {
             super.onProgressUpdate(values);
             progressBar.setProgress(values[0]);
             text.setText("Выполнено : " + values[0] + "/100");
-
         }
     }
 }
