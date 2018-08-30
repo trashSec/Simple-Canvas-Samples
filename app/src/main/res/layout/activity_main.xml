@@ -14,17 +14,12 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="4dp"
         android:text="@string/chose_game"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="normal|italic" />
-
-    <Button
-        android:id="@+id/birds_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Funny Birds" />
 
     <Button
         android:id="@+id/balls_button"
@@ -42,13 +37,19 @@
         android:id="@+id/lines_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lines"/>
+        android:text="Lines" />
 
     <Button
         android:id="@+id/recurs_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recurs"/>
+        android:text="Recurs" />
+
+    <Button
+        android:id="@+id/flashing_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flashing ball" />
 
     <TextView
         android:id="@+id/text"

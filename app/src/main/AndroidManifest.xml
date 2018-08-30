@@ -16,10 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Smile.Smile" />
-        <activity android:name=".Birds.Birds" />
         <activity android:name=".Balls.Balls" />
         <activity android:name=".Lines.Lines" />
         <activity android:name=".Recurs.Recurs" />
+        <activity android:name=".FlashingBall.SurfaceActivity" />
     </application>
 
 </manifest>

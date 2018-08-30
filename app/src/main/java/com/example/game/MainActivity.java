@@ -10,58 +10,62 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.game.Balls.Balls;
-import com.example.game.Birds.Birds;
+import com.example.game.FlashingBall.SurfaceActivity;
 import com.example.game.Lines.Lines;
 import com.example.game.Recurs.Recurs;
 import com.example.game.Smile.Smile;
 
 
 public class MainActivity extends Activity {
-    Intent birdsIntent, ballsIntent, smileIntent, linesIntent, recursIntent;
-    Button birdsButton, ballsButton, smileButton, linesButton, recursButton;
-    boolean p1 = false, p2 = false, p3 = false, p4 = false, p5 = false;
-    ProgressBar progressBar;
-    TextView text;
+    private Intent ballsIntent, smileIntent, linesIntent, recursIntent, flashingIntent;
+    private Button ballsButton, smileButton, linesButton, recursButton, flashingButton;
+    private boolean p1 = false, p2 = false, p3 = false, p4 = false, p5 = false;
+    private ProgressBar progressBar;
+    private TextView text;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        birdsIntent = new Intent(this, Birds.class);
-        ballsIntent = new Intent(this, Balls.class);
-        smileIntent = new Intent(this, Smile.class);
-        linesIntent = new Intent(this, Lines.class);
-        recursIntent = new Intent(this, Recurs.class);
+        initialIntents();
 
-        birdsButton = findViewById(R.id.birds_button);
-        ballsButton = findViewById(R.id.balls_button);
-        smileButton = findViewById(R.id.smile_button);
-        linesButton = findViewById(R.id.lines_button);
-        recursButton = findViewById(R.id.recurs_button);
+        initialButtons();
 
         progressBar = findViewById(R.id.progressBar);
         text = findViewById(R.id.text);
 
-        birdsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                p1 = true;
-                new LoadImage().execute();
+        buttonsSetTasks();
+    }
 
-            }
-        });
+    private void initialIntents() {
+        ballsIntent = new Intent(this, Balls.class);
+        smileIntent = new Intent(this, Smile.class);
+        linesIntent = new Intent(this, Lines.class);
+        recursIntent = new Intent(this, Recurs.class);
+        flashingIntent = new Intent(this, SurfaceActivity.class);
+    }
+
+    private void initialButtons() {
+        ballsButton = findViewById(R.id.balls_button);
+        smileButton = findViewById(R.id.smile_button);
+        linesButton = findViewById(R.id.lines_button);
+        recursButton = findViewById(R.id.recurs_button);
+        flashingButton = findViewById(R.id.flashing_button);
+    }
+
+    private void buttonsSetTasks() {
         ballsButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                p2 = true;
+            public void onClick(View v) {
+                p1 = true;
                 new LoadImage().execute();
 
             }
         });
         smileButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                p3 = true;
+            public void onClick(View v) {
+                p2 = true;
                 new LoadImage().execute();
 
             }
@@ -69,11 +73,18 @@ public class MainActivity extends Activity {
         linesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                p4 = true;
+                p3 = true;
                 new LoadImage().execute();
             }
         });
         recursButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                p4 = true;
+                new LoadImage().execute();
+            }
+        });
+        flashingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 p5 = true;
@@ -106,19 +117,19 @@ public class MainActivity extends Activity {
         protected void onPostExecute(Void image) {
             text.setText("Задача завершена");
             if (p1) {
-                startActivity(birdsIntent);
+                startActivity(ballsIntent);
                 p1 = false;
             } else if (p2) {
-                startActivity(ballsIntent);
+                startActivity(smileIntent);
                 p2 = false;
             } else if (p3) {
-                startActivity(smileIntent);
+                startActivity(linesIntent);
                 p3 = false;
             } else if (p4) {
-                startActivity(linesIntent);
+                startActivity(recursIntent);
                 p4 = false;
             } else {
-                startActivity(recursIntent);
+                startActivity(flashingIntent);
                 p5 = false;
             }
             text.setVisibility(View.INVISIBLE);
