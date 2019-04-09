@@ -30,7 +30,7 @@ class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
                     paint.setColor(Color.RED);
                     canvas.drawCircle(getWidth() / 2, getHeight() / 2, getWidth() / 2, paint);
                     x = 2;
-                } else if (x != 1) {
+                } else {
                     try {
                         sleep(2000);
                     } catch (InterruptedException e) {
